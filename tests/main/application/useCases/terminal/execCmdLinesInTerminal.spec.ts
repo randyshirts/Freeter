@@ -43,8 +43,8 @@ describe('execCmdLinesInTerminalUseCase()', () => {
     useCase(testCmdLines, testCwd);
 
     expect(childProcessProviderMock.spawnDetached).toBeCalledTimes(2);
-    expect(childProcessProviderMock.spawnDetached).toHaveBeenNthCalledWith(1, testTerminal, ['-e', 'bash', '-c', '"cmd line 1; exec bash"'], { cwd: testCwd, shell: true });
-    expect(childProcessProviderMock.spawnDetached).toHaveBeenNthCalledWith(2, testTerminal, ['-e', 'bash', '-c', '"cmd \\"str \\\\\\"sub str\\\\\\"\\" 2; exec bash"'], { cwd: testCwd, shell: true });
+    expect(childProcessProviderMock.spawnDetached).toHaveBeenNthCalledWith(1, testTerminal, ['-e', 'zsh', '-c', '"cmd line 1; exec zsh"'], { cwd: testCwd, shell: true });
+    expect(childProcessProviderMock.spawnDetached).toHaveBeenNthCalledWith(2, testTerminal, ['-e', 'zsh', '-c', '"cmd \\"str \\\\\\"sub str\\\\\\"\\" 2; exec zsh"'], { cwd: testCwd, shell: true });
   });
 
   it('should call spawnDetached() with right params for each cmdLine, when exec on win', async () => {

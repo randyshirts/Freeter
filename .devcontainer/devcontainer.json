@@ -1,0 +1,53 @@
+{
+	"name": "models_environment",
+	"image": "localhost/freeter:latest",
+	"workspaceFolder": "/home/randys",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"redhat.vscode-yaml",
+				"Gruntfuggly.todo-tree",
+				"eamodio.gitlens",
+				"vscode-icons-team.vscode-icons",
+				"ZainChen.json",
+				"tamasfe.even-better-toml",
+				"ms-vscode.vscode-typescript-next"
+			],
+			"settings": {
+				"editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+				"editor.fontSize": 15,
+				"editor.formatOnSave": true,
+				"terminal.integrated.shell.linux": "/bin/bash",
+				"remote.extensionKind": {
+					"ms-azuretools.vscode-docker": "workspace"
+				},
+				"files.insertFinalNewline": false,
+				"files.trimTrailingWhitespace": true,
+				"[markdown]": {
+					"files.trimTrailingWhitespace": false
+				},
+				"trailing-spaces.highlightCurrentLine": false,
+				"trailing-spaces.trimOnSave": true
+			}
+		}
+	},
+	// For more devcontainer options see https://containers.dev/implementors/json_reference/
+	// Adding volume here because couldn't get the --mount with bind to share with host correctly
+	"runArgs": [
+		"--userns",
+		"keep-id:uid=1000,gid=1000",
+		"--user",
+		"1000",
+		"--pids-limit",
+		"0",
+		"-v",
+		"${localWorkspaceFolder}:/home/randys",
+		"--shm-size=9.69gb"
+	],
+	"containerUser": "randys",
+	"containerEnv": {
+		"HOME": "/home/randys"
+	},
+	"overrideCommand": true
+}

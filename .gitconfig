@@ -1,0 +1,18 @@
+[user]
+	email = randy.shirts2.civ@army.mil
+	name = randys
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	autocrlf = input
+[credential]
+	helper = "!f() { /home/randys/.vscode-server/bin/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/node /tmp/vscode-remote-containers-783f504c-ee61-4967-98af-6c9fa46b6a98.js git-credential-helper $*; }; f"
+[safe]
+	directory = /
+	directory = /
+	directory = /

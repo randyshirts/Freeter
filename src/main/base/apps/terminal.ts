@@ -16,7 +16,7 @@ export function createArgsFactoryToExecCmdLineInLinuxTerminal(terminal: string) 
       break;
     }
     default: {
-      factory = cmdLine => [terminal, '-e', 'bash', '-c', `"${escBashCmdLine(`${cmdLine}; exec bash`)}"`];
+      factory = cmdLine => [terminal, '-e', 'zsh', '-c', `"${escBashCmdLine(`${cmdLine}; exec zsh`)}"`];
     }
   }
 
